@@ -1,0 +1,21 @@
+Parameters:
+  DynaTableName:
+      Type: String
+      MinLength: 3
+    
+Resources:
+ 
+  TodoTabl:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: !Ref DynaTableName
+        BillingMode: PAY_PER_REQUEST 
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id 
+            KeyType: HASH
+
+  
+      
