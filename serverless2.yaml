@@ -2,20 +2,25 @@ Parameters:
   DynaTableName:
       Type: String
       MinLength: 3
-    
-Resources:
- 
-  TodoTabl:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: !Ref DynaTableName
-        BillingMode: PAY_PER_REQUEST 
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id 
-            KeyType: HASH
+      AllowedValues:
+        - table1
+        - table2
+        - mytable
+      # Description: Enter t2.micro, m1.small, or m1.large. Default is t2.micro.
 
-  
+          
+Resources:
+ TodoTabl:                       
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref DynaTableName
+      BillingMode: PAY_PER_REQUEST 
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id 
+          KeyType: HASH
+
+   
       
